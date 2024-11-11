@@ -1,0 +1,12 @@
+*.aux
+*.log
+*.idx
+*.toc
+*.lof
+*.lot
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+_minted*
+*/output/*
