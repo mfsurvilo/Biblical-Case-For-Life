@@ -7,22 +7,46 @@
 
 \usepackage{makeidx}
 \usepackage{scripture}
+\usepackage{etoolbox}
+
 \scripturesetup{
     font=\small,
     version=NASB
 }
 
+\newcounter{question}
+\renewcommand{\thequestion}{\arabic{question}}
+\newcommand{\question}[1]{%
+    \refstepcounter{question}%
+    \textbf{Question \thequestion:} #1%
+}
+\AtBeginDocument{%
+    \setcounter{question}{0}%
+    \preto\chapter{\setcounter{question}{0}}%
+}
+
 \makeindex
 
 \begin{document}
-
 \maketitle
 \tableofcontents
 
 % Include each book chapter
 \input{chapters/introduction.tex}
-\input{chapters/chapter1.tex}
-\input{chapters/chapter2.tex}
+\input{chapters/inherent-value.tex}
+\input{chapters/origin-of-life.tex}
+\input{chapters/murder-killing.tex}
+\input{chapters/child-sacrafice.tex}
+\input{chapters/imposed-morality.tex}
+\input{chapters/faithfullness.tex}
+\input{chapters/justice.tex}
+\input{chapters/neighbor.tex}
+
+
+\input{chapters/controversial-passages.tex}
+
+
+
 \input{chapters/appendix1.tex}
 \input{chapters/appendix2.tex}
 \bibliography{references}
