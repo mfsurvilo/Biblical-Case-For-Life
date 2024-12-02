@@ -10,7 +10,7 @@ def read_markdown_file(file_path):
 def parse_verses(markdown_text):
     # Pattern to capture verses with tags like [!bible] [Reference - NASB](link)
     verse_pattern = re.compile(
-        r'> \[!bible\] \[(.*?) - NASB\]\((.*?)\)\n((?:> \d+\. .*\n)+)',
+        r`> \[!bible\] \[(.*?) - NASB\]\((.*?)\)\n((?:> \d+\. .*\n)+)`,
         re.MULTILINE
     )
     
@@ -26,7 +26,7 @@ def parse_verses(markdown_text):
 
 def format_verse(reference, content):
     # Pattern to capture each verse line (e.g., > 18. verse text)
-    line_pattern = re.compile(r'> (\d+)\. (.+)')
+    line_pattern = re.compile(r`> (\d+)\. (.+)`)
     
     formatted_lines = []
     for line_match in line_pattern.finditer(content):
@@ -56,5 +56,5 @@ def main(input_file, output_file="output.tex"):
     print(f"Verses have been saved to {output_file}")
 
 # Example usage:
-# Replace 'input.md' with the path to your markdown file
+# Replace `input.md` with the path to your markdown file
 main("input.md")

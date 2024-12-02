@@ -7,10 +7,10 @@ def generate_verse_text(book, chapter, verse_index, verse_text):
     Generate LaTeX-formatted string for a single verse with a short label.
     """
     # Create a short label based on book abbreviation, chapter, and verse
-    short_label = f"{book['name'].split()[0][:3]}{chapter + 1}:{verse_index + 1}".replace(" ", "")
+    short_label = f"{book[`name`].split()[0][:3]}{chapter + 1}:{verse_index + 1}".replace(" ", "")
     
     # Output only the short label
-    return f"\\textbf{{{book['name']} ({book['abbrev'].upper()}) {chapter + 1}:{verse_index + 1} (NASB)}} {verse_text}\n\\label{{{short_label}}}\n\n"
+    return f"\\textbf{{{book[`name`]} ({book[`abbrev`].upper()}) {chapter + 1}:{verse_index + 1} (NASB)}} {verse_text}\n\\label{{{short_label}}}\n\n"
 
 def main(json_filename):
     # Load the NASB Bible JSON data
